@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>是男人就杀一百个怪</title>
+	<link rel="stylesheet" href="./game.css">
+	<script>
+        (function(){
+            if(!window.requestAnimationFrame){
+                alert('您的浏览器版本太久，自动前往下载chrome浏览器');
+                window.location.href = 'http://www.google.cn/intl/zh-CN/chrome/browser/desktop/index.html';
+            }
+        }())
+    </script>
+</head>
+<body>
+	<div id="ctr-box">
+		<div id="stage">
+			<div id="shouldHide">
+				<h5 id="load">
+					<span class="loadTitle">LOADING...</span>
+					<img src="./img/loading.svg" alt="" >
+				</h5>
+				<div class="title-a"></div>
+				<h5 class="title"></h5>
+				<ul class="btn-group">
+					<li ><button id="start" class="button"></button></li>
+					<li ><button id="upload" class="button"></button></li>
+				</ul>
+			</div>
+			<div id="tool-bar">
+				<div class="stop-btn">
+					<input type="checkbox" id="stop" style="display: none;">
+					<label for="stop" ></label>
+				</div>
+				<div class="skill">
+					<img src="./img/skill1.png" alt="">
+					<div class="menu">
+						<h5>奥义！绿星 [X]</h5>
+						<p>洛克 发射出一枚初级能量弹<br>对他碰到的第一个敌人造成伤害，增加1点积分 <br><br>技能冷却：0s</p>
+					</div>
+				</div>
+				<div class="skill cooling">
+					<img src="./img/skill3.png" alt="">
+					<div class="menu">
+						<h5>奥义！千鸟 [Z]</h5>
+						<p>洛克 发射出一枚充满快速的电球<br>对他碰到的第一个敌人造成伤害，增加1点积分 <br><br>技能冷却：0s<br>技能特性：成角度发射，速度较快</p>
+					</div>
+				</div>
+				<div class="skill cooling">
+					<img src="./img/skill5.png" alt="">
+					<div class="menu">
+						<h5>必杀！终极闪光 [R]</h5>
+						<p>洛克 发射出超强光炮！<br>对一条直线上的敌人造成伤害，并摧毁所有飞行道具，每个杀死的敌人都能为洛克增加1点积分 <br><br>技能冷却：3s<br>技能特性：施法时无法移动</p>
+					</div>
+				</div>
+				<div class="skill cooling">
+					<img src="./img/skill2.png" alt="">
+					<div class="menu" style="width:200px;left: -100px;">
+						<h5>超必杀！大炎戒 炎帝 [A +↑]</h5>
+						<p>洛克 召唤火球轰炸，消灭所有敌人<br>对火球碰到的第一个敌人造成伤害，每个杀死的敌人都能为洛克加5点积分 <br><br>技能冷却：3s</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<canvas id="canvas" height="500px" width="1000px"></canvas>
+	</div>
+	<div class="dialog" id="dialog">
+		<div class="mask"></div>
+		<div class="menu fadeInDown">
+			<button onclick="location.reload()">重玩</button>
+			<button id="up">上传积分</button>
+		</div>
+	</div>
+	<img src="./img/rain3.png" alt="" class="rain" >
+	<img src="./img/rain.png" alt="" class="rain" >
+	<img src="./img/rain2.png" alt="" class="rain">
+	<img src="./img/cloud2.png" alt="" class="cloud">
+	<img src="./img/cloud3.png" alt="" class="cloud">
+	<img src="./img/cloud4.png" alt="" class="cloud">
+	<img src="./img/Sasuke.png" alt="" id="boss">
+	<script src="./lib/Sprite.js"></script>
+	<script src="./game.js"></script>
+</body>
+</html>

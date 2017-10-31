@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>小游戏</title>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div class="loading">
+<svg   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-bricks">
+    <rect ng-attr-fill="{{config.c1}}" ng-attr-x="{{config.x}}" ng-attr-y="{{config.x}}" ng-attr-width="{{config.w}}" ng-attr-height="{{config.w}}" ng-attr-rx="{{config.radius}}" ng-attr-ry="{{config.radius}}" fill="#ff7c81" x="21.5" y="21.5" width="25" height="25" rx="3" ry="3">
+      <animate attributeName="x" calcMode="linear" values="21.5;53.5;53.5;53.5;53.5;21.5;21.5;21.5;21.5" keyTimes="0;0.083;0.25;0.333;0.5;0.583;0.75;0.833;1" dur="1.5" begin="-1.375s" repeatCount="indefinite"></animate>
+      <animate attributeName="y" calcMode="linear" values="21.5;53.5;53.5;53.5;53.5;21.5;21.5;21.5;21.5" keyTimes="0;0.083;0.25;0.333;0.5;0.583;0.75;0.833;1" dur="1.5" begin="-1s" repeatCount="indefinite"></animate>
+    </rect>
+    <rect ng-attr-fill="{{config.c2}}" ng-attr-x="{{config.x}}" ng-attr-y="{{config.x}}" ng-attr-width="{{config.w}}" ng-attr-height="{{config.w}}" ng-attr-rx="{{config.radius}}" ng-attr-ry="{{config.radius}}" fill="#ffec58" x="21.5" y="53.5" width="25" height="25" rx="3" ry="3">
+      <animate attributeName="x" calcMode="linear" values="21.5;53.5;53.5;53.5;53.5;21.5;21.5;21.5;21.5" keyTimes="0;0.083;0.25;0.333;0.5;0.583;0.75;0.833;1" dur="1.5" begin="-0.875s" repeatCount="indefinite"></animate>
+      <animate attributeName="y" calcMode="linear" values="21.5;53.5;53.5;53.5;53.5;21.5;21.5;21.5;21.5" keyTimes="0;0.083;0.25;0.333;0.5;0.583;0.75;0.833;1" dur="1.5" begin="-0.5s" repeatCount="indefinite"></animate>
+    </rect>
+    <rect ng-attr-fill="{{config.c3}}" ng-attr-x="{{config.x}}" ng-attr-y="{{config.x}}" ng-attr-width="{{config.w}}" ng-attr-height="{{config.w}}" ng-attr-rx="{{config.radius}}" ng-attr-ry="{{config.radius}}" fill="#7cd7ff" x="53.5" y="42.919" width="25" height="25" rx="3" ry="3">
+      <animate attributeName="x" calcMode="linear" values="21.5;53.5;53.5;53.5;53.5;21.5;21.5;21.5;21.5" keyTimes="0;0.083;0.25;0.333;0.5;0.583;0.75;0.833;1" dur="1.5" begin="-0.375s" repeatCount="indefinite"></animate>
+      <animate attributeName="y" calcMode="linear" values="21.5;53.5;53.5;53.5;53.5;21.5;21.5;21.5;21.5" keyTimes="0;0.083;0.25;0.333;0.5;0.583;0.75;0.833;1" dur="1.5" begin="0s" repeatCount="indefinite"></animate>
+    </rect>
+  </svg>
+  <span>加载中</span>
+  </div>  
+  
+  
+  
+  
+
+   <div id="background">
+       <div id="controllers">
+          <button class="btn btn-primary btn-lg login-btn" data-toggle="modal" data-target="#loginmodel">登录</button>
+          <button class="btn btn-primary btn-lg login-btn" data-toggle="modal" data-target="#registmodel">注册</button>
+          <button type="button" class="btn btn-primary btn-lg game-start" >开始游戏</button>
+           <button class="btn btn-primary btn-lg list-btn" data-toggle="modal" data-target="#listmodel">排行榜</button>
+       </div>
+    </div>
+       
+   
+         
+   
+   
+<div class="modal fade" id="listmodel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">排行榜</h4>
+            </div>
+            <div id="list"class="modal-body">
+                <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>排位</th>
+                          <th>用户名</th>
+                          <th>分数</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+
+                      </tbody>
+                 </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+  
+  
+<div class="modal fade" id="loginmodel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">登录</h4>
+            </div>
+            <div class="modal-body">
+               
+                    <form class="bs-example bs-example-form" role="form">
+                        <div class="input-group">
+                            <span class="input-group-addon">用户名</span>
+                            <input type="text" class="loginusername form-control" placeholder="请输入七位以上用户名">
+                        </div>
+                        <div class="login-username-error error"></div>
+                        <div class="input-group">
+                            <span class="input-group-addon">密码</span>
+                            <input type="password" class="loginpassword form-control" placeholder="请输入密码">
+                        </div>
+                        <div class="login-password-error error"></div>
+                    </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                <button type="button" class="logincontroll btn btn-primary" data-dismiss="modal">登录</button>
+            </div>
+        </div>
+    </div>
+</div>
+  
+  
+  
+  
+<div class="modal fade" id="registmodel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">注册 </h4>
+            </div>
+            <div class="modal-body">
+               
+                    <form class="bs-example bs-example-form" role="form">
+                        <div class="input-group">
+                            <span class="input-group-addon">用户名</span>
+                            <input type="text" class="registusername form-control" placeholder="请输入七位以上用户名">
+                        </div>
+                        <div class="regist-username-error error"></div>
+                        <div class="input-group">
+                            <span class="input-group-addon">密码</span>
+                            <input type="password" class="registpassword form-control" placeholder="请输入密码">
+                        </div>
+                        <div class="regist-password-error error"></div>
+                        <div class="input-group">
+                            <span class="input-group-addon">确认密码</span>
+                            <input type="password" class="reregistpassword form-control" placeholder="请确认密码">
+                        </div>
+                        <div class="reregist-password-error error"></div>
+                    </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                <button type="button" class="registcontroll btn btn-primary" data-dismiss="modal">注册</button>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+   
+     
+       
+         
+   <div class="alert alert-info tips">
+       <span>提示：</span>
+       <span class="tip">上下左右键进行移动，初始技能是X</span>
+   </div>
+   <div class="musiccontroll"></div>
+   <div id="dark"></div>
+   <div id="userinfo" class="alert alert-warning">
+       <span><span class="glyphicon glyphicon-user"></span>用户名:</span>
+       <span class="username">未登录</span><br>
+       <span><span class="glyphicon glyphicon-star"></span>最高分数:</span>
+       <span class="maxcount">未登录</span><br>
+       <span><span class="glyphicon glyphicon-calendar"></span>游戏次数:</span>
+       <span class="time">未登录</span>
+       <audio src="lib/background2.mp3" autoplay loop></audio>
+<!--       <audio src="lib/battle.mp3"></audio>-->
+   </div>
+   <div id="successIn">
+       <span class="head">本次分数</span>
+       <span class="score"></span><br>
+       <span class="successin"></span><br>
+       <button class="finishOut btn btn-primary btn-lg" >退出</button><br>
+       <button class="finishAgain btn btn-primary btn-lg">重新开始</button>
+   </div>
+   
+   <div id="myCarousel" class="carousel slide" data-wrap="false">
+    <!-- 轮播（Carousel）指标 -->
+<!--
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>   
+-->
+    <!-- 轮播（Carousel）项目 -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <img src="images/start.png" alt="Fourth slide">
+            <div class="carousel-caption">方向键控制英雄移动，初始技能x进行攻击</div>
+        </div>
+        <div class="item">
+            <img src="images/x.png" alt="First slide">
+            <div class="carousel-caption">通过消灭怪物获得积分</div>
+        </div>
+        <div class="item">
+            <img src="images/die.png" alt="Second slide">
+            <div class="carousel-caption">被怪物打到或触碰边界会受到一点伤害并获得三秒无敌</div>
+        </div>
+        <div class="item">
+            <img src="images/z.png" alt="Third slide">
+            <div class="carousel-caption">消灭怪物会解锁技能，加油吧</div>
+        </div>
+         
+    </div>
+    <!-- 轮播（Carousel）导航 -->
+    <a class="carousel-control right" href="#myCarousel" 
+        data-slide="next">&rsaquo;
+    </a>
+</div>
+   
+   
+   
+   
+   
+   
+   
+   
+   <div class="game">
+     <div class="container">
+      <div class="minisize">最小化</div>
+       <div id="ctr-box">
+		<div id="stage">
+			<div id="shouldHide">
+				<h5 id="load">
+					<span class="loadTitle">LOADING...</span>
+					<img src="./img/loading.svg" alt="" >
+				</h5>
+				<div class="title-a"></div>
+				<h5 class="title"></h5>
+				<ul class="btn-group">
+					<li ><button id="start" class="button"></button></li>
+					<li ><button id="upload" class="button" onclick="alert('敬请期待')"></button></li>
+				</ul>
+			</div>
+			<div id="tool-bar">
+				<div class="stop-btn">
+					<input type="checkbox" id="stop" style="display: none;">
+					<label for="stop" ></label>
+				</div>
+				
+				<div class="skill">
+					<img src="./img/skill1.png" alt="">
+					<div class="menu">
+						<h5>奥义！绿星 [X]</h5>
+						<p>洛克 发射出一枚初级能量弹<br>对他碰到的第一个敌人造成伤害，增加1点积分 <br><br>技能冷却：0s</p>
+					</div>
+				</div>
+				<div class="skill cooling">
+					<img src="./img/skill3.png" alt="">
+					<div class="menu">
+						<h5>奥义！千鸟 [Z]</h5>
+						<p>洛克 发射出一枚充满快速的电球<br>对他碰到的第一个敌人造成伤害，增加1点积分 <br><br>技能冷却：0s<br>技能特性：成角度发射，速度较快</p>
+					</div>
+				</div>
+				<div class="skill cooling">
+					<img src="./img/skill5.png" alt="">
+					<div class="menu">
+						<h5>必杀！终极闪光 [R]</h5>
+						<p>洛克 发射出超强光炮！<br>对一条直线上的敌人造成伤害，并摧毁所有飞行道具，每个杀死的敌人都能为洛克增加1点积分 <br><br>技能冷却：3s<br>技能特性：施法时无法移动</p>
+					</div>
+				</div>
+				<div class="skill cooling">
+					<img src="./img/skill2.png" alt="">
+					<div class="menu" style="width:200px;left: -100px;">
+						<h5>超必杀！大炎戒 炎帝 [A +↑]</h5>
+						<p>洛克 召唤火球轰炸，消灭所有敌人<br>对火球碰到的第一个敌人造成伤害，每个杀死的敌人都能为洛克加5点积分 <br><br>技能冷却：3s</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<canvas id="canvas" height="500px" width="1000px"></canvas>
+	</div>
+	<div class="dialog" id="dialog">
+		<div class="mask"></div>
+		<div class="menu fadeInDown">
+			<button onclick="location.reload()">重玩</button>
+			<button id="up">上传积分</button>
+		</div>
+	</div>
+	<img src="./img/rain3.png" alt="" class="rain" >
+	<img src="./img/rain.png" alt="" class="rain" >
+	<img src="./img/rain2.png" alt="" class="rain">
+	<img src="./img/cloud2.png" alt="" class="cloud">
+	<img src="./img/cloud3.png" alt="" class="cloud">
+	<img src="./img/cloud4.png" alt="" class="cloud">
+	<img src="./img/Sasuke.png" alt="" id="boss">
+  </div>
+   </div>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   <script src="js/jquery-2.1.1.min.js"></script>
+   <script src="js/jquery.cookie.js"></script>
+   <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+   <script src="js/index.js"></script>
+   <script src="./lib/Sprite.js"></script>
+   <script src="./game.js"></script>
+</body>
+</html>
